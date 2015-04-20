@@ -159,9 +159,6 @@ install_kafka()
 #------------------------
 install_java
 
-if
-ZOOKEEPER1KAFKA0
-
 if [ ${ZOOKEEPER1KAFKA0} -eq "1" ];
 then
 #
