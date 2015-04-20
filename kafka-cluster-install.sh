@@ -147,7 +147,7 @@ install_kafka()
 #	sed -r -i "s/(broker.id)=(.*)/\1=1/g" config/server-1.properties 
 #	sed -r -i "s/^(port)=(.*)/\1=9093/g" config/server-1.properties````
 	chmod u+x /usr/local/kafka/kafka_${kafkaversion}-${version}/bin/kafka-server-start.sh
-	/usr/local/kafka/kafka_${kafkaversion}-${version}/bin/kafka-server-start.sh /usr/local/kafka/kafka_${kafkaversion}-${version}/config/server.properties
+	/usr/local/kafka/kafka_${kafkaversion}-${version}/bin/kafka-server-start.sh /usr/local/kafka/kafka_${kafkaversion}-${version}/config/server.properties &
 }
 
 # Primary Install Tasks
