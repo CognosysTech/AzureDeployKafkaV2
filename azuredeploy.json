@@ -275,7 +275,7 @@
             "name": "[concat('myvmzoo', copyindex())]",
             "location": "[parameters('region')]",
             "copy": {
-                "name": "virtualMachineLoop",
+                "name": "virtualZookeeperMachineLoop",
                 "count": "[variables('numberOfZooInstances')]"
             },
             "dependsOn": [
@@ -325,7 +325,8 @@
             },
             "dependsOn": [
                 "[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
-                "[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]"
+                "[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]",
+		"virtualZookeeperMachineLoop"
             ],
             "properties": {
                 "availabilitySet": {
