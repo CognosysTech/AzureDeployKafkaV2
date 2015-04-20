@@ -50,7 +50,7 @@ fi
 KF_VERSION="0.8.2.1"
 BROKER_ID=0
 ZOOKEEPER1KAFKA0="0"
-ZOOKEEPER_IPPORT="10.0.0.21:2181"
+ZOOKEEPER_IPPORT="10.0.0.20:2181"
 
 #Loop through options passed
 while getopts :k:b:z:i:h optname; do
