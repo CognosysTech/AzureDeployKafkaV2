@@ -94,6 +94,8 @@ install_java()
 # Install Zookeeper
 install_zookeeper()
 {
+	mkdir -p /var/lib/zookeeper
+	cd /var/lib/zookeeper
 	wget "http://mirrors.ukfast.co.uk/sites/ftp.apache.org/zookeeper/stable/zookeeper-3.4.6.tar.gz"
 	tar -xvf "zookeeper-3.4.6.tar.gz"
 
@@ -104,11 +106,7 @@ install_zookeeper()
 	echo "clientPort=2181" >> zookeeper-3.4.6/conf/zoo.cfg
 	echo "initLimit=5" >> zookeeper-3.4.6/conf/zoo.cfg
 	echo "syncLimit=2" >> zookeeper-3.4.6/conf/zoo.cfg
-	echo "server.1=10.0.0.4:2888:3888" >> zookeeper-3.4.6/conf/zoo.cfg
-	echo "server.2=10.0.0.5:2888:3888" >> zookeeper-3.4.6/conf/zoo.cfg
-	echo "server.3=10.0.0.6:2888:3888" >> zookeeper-3.4.6/conf/zoo.cfg
-
-	mkdir -p /var/lib/zookeeper
+	echo "server.1=10.0.0.20:2888:3888" >> zookeeper-3.4.6/conf/zoo.cfg
 
 	echo $(($1+1)) >> /var/lib/zookeeper/myid
 
@@ -146,8 +144,8 @@ install_kafka()
 #	cp config/server.properties config/server-1.properties 
 #	sed -r -i "s/(broker.id)=(.*)/\1=1/g" config/server-1.properties 
 #	sed -r -i "s/^(port)=(.*)/\1=9093/g" config/server-1.properties````
-
-	/usr/local/kafka/kafka_${kafkaversion}-${version}/bin/kafka-server-start.sh config/server.properties
+	chmod u+x /usr/local/kafka/kafka_${kafkaversion}-${version}/bin/kafka-server-start.sh
+	/usr/local/kafka/kafka_${kafkaversion}-${version}/bin/kafka-server-start.sh /usr/local/kafka/kafka_${kafkaversion}-${version}/config/server.properties
 }
 
 # Primary Install Tasks
