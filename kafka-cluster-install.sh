@@ -116,6 +116,8 @@ install_zookeeper()
 # Install kafka
 install_kafka()
 {
+# wait for kafka - zookeeper
+# Ping --- 
 	cd /usr/local
 	name=kafka
 	version=${KF_VERSION}
