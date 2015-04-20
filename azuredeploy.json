@@ -373,7 +373,7 @@
         {
             
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat('myvmzoo', copyindex(), '/installkafka')]",
+            "name": "[concat('myvmzoo', copyindex(), '/installzoo')]",
             "apiVersion": "2014-12-01-preview",
             "location": "[parameters('region')]",
             "copy": {
@@ -403,7 +403,7 @@
             "location": "[parameters('region')]",
             "copy": {
                 "name": "virtualMachineExtensionsLoop",
-                "count": "[variables('numberOfZooInstances')]"
+                "count": "[variables('numberOfKafkaInstances')]"
             },
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', 'myvm', copyindex())]",
