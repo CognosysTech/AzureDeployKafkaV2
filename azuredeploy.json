@@ -78,7 +78,7 @@
         },
 	"kafkaZooNodeIPAddressPrefix": {
             "type": "string",
-            "defaultValue": "10.0.0.2",
+            "defaultValue": "10.0.0.4",
             "metadata": {
                 "Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
             }
